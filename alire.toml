@@ -1,7 +1,16 @@
+name = "z_compression"
+description = "Standalone version of the Zlib Deflate compression algorithm"
+version = "20240724.0.0"
+
+authors = ["Jeffrey R. Carter"]
+maintainers = ["Bent Bracke <bent@bracke.dk>"]
+maintainers-logins = ["bracke"]
+licenses = "BSD-3-Clause"
+website = "https://github.com/bracke/Z_Compression"
+tags = ["zlib", "deflate", "compression"]
+
+long-description = """
 # Z_Compression
-
-[![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/z_compression.json)](https://alire.ada.dev/crates/z_compression.html)
-
 Standalone version of the Zlib Deflate compression algorithm, derived from de Montmollin's Zip-Ada
 
 Z_Compression.Compress applies Deflate to an input stream of bytes, defined by its generic formal subprograms Out_Of_Data and Next, producing an output stream of bytes that are passed to the generic formal procedure Put. The output may be in Zlib or raw Deflate formats.
@@ -13,4 +22,11 @@ zc_test <file name>
 ```
 
 No error checking or handling is done. It compresses the given file into a Zlib format file. The output file name is the input file name with ".zc" appended.
+"""
 
+[build-switches]
+"*".style_checks = "No"
+"*".ada_version = "Ada12"
+
+[[depends-on]] # Avoid bug in GNAT 13
+gnat = "<13.0 | >=13.3"

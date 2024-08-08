@@ -1,0 +1,25 @@
+name = "tests"
+description = "tests"
+version = "20240724.0.0"
+
+authors = ["Bent Bracke"]
+maintainers = ["Bent Bracke <bent@bracke.dk>"]
+maintainers-logins = ["bracke"]
+licenses = "BSD-3-Clause"
+website = "https://github.com/bracke/Z_Compression"
+tags = ["tests"]
+
+executables = ["zc_test"]
+
+[build-switches]
+"*".style_checks = "No"
+"*".ada_version = "Ada12"
+
+[[depends-on]] # Avoid bug in GNAT 13
+gnat = "<13.0 | >=13.3"
+
+[[depends-on]]
+z_compression = "*"
+
+[[pins]]
+z_compression = { path='..' }
